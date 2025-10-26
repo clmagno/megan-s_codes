@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>04 – Select, Textarea, Datalist</title>
+<link rel="stylesheet" href="assets/style.css">
+<main>
+  <h1>Select, Textarea, Datalist</h1>
+  <form>
+    <label for="region">Region</label>
+    <select id="region" name="region" required>
+      <optgroup label="Luzon">
+        <option value="NCR">NCR</option>
+        <option>Ilocos</option>
+      </optgroup>
+      <optgroup label="Visayas">
+        <option>Western Visayas</option>
+      </optgroup>
+      <optgroup label="Mindanao">
+        <option>Davao Region</option>
+      </optgroup>
+    </select>
+
+    <label for="about">About you (max 140)</label>
+    <textarea id="about" name="about" rows="4" maxlength="140"
+              placeholder="Tell us something cool…"></textarea>
+    <small class="small">You can type up to 140 characters.</small>
+
+    <label for="barangay">Barangay</label>
+    <input id="barangay" name="barangay" list="barangay-list" placeholder="Start typing…">
+    <datalist id="barangay-list">
+      <option value="San Isidro">
+      <option value="Sto. Niño">
+      <option value="Poblacion">
+    </datalist>
+
+    <button>Submit</button>
+  </form>
+</main>
+</html>

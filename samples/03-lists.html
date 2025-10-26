@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unordered and Ordered Lists</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 2rem; }
+    .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+    section { border: 1px solid #ddd; padding: 1rem; border-radius: .5rem; }
+    code { background: #f3f3f3; padding: 0 .25rem; }
+  </style>
+</head>
+<body>
+  <h1>Unordered and Ordered Lists</h1>
+  <div class="two-col">
+    <section>
+      <h2>Unordered List (&lt;ul&gt;)</h2>
+      <ul>
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Cherries</li>
+      </ul>
+      <p>Change bullets with CSS: <code>list-style-type</code> → <code>disc</code>, <code>circle</code>, <code>square</code>.</p>
+      <ul style="list-style-type: square;">
+        <li>Square bullet</li><li>Another square</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ordered List (&lt;ol&gt;)</h2>
+      <ol>
+        <li>Preheat oven</li>
+        <li>Mix ingredients</li>
+        <li>Bake and serve</li>
+      </ol>
+      <p>Use attributes like <code>start</code> and <code>type</code>:</p>
+      <ol start="5" type="A">
+        <li>Fifth (A)</li>
+        <li>Sixth (B)</li>
+      </ol>
+    </section>
+  </div>
+</body>
+</html>

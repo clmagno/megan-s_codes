@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Warmup</title>
+</head>
+
+	<style>
+		
+	h1{
+		text-align: center;
+		color: white;
+		text-shadow: #1a1a1a 2px 2px 4px;
+	}
+	
+	body {
+      font-family: Arial, sans-serif;
+      background: #a83246;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+	  
+      margin: 0;
+    }
+
+    .form-container {
+    	border: 1px solid #a83246;
+        border-radius: 10px;
+        padding: 50px 60px 10px 60px;
+        margin: 1rem 0;
+        background: lightpink;
+        margin-top: 10px;
+        text-align: left;
+        justify-self: center;
+		width: 500px;
+	 }
+	 label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #333;
+}
+	 input[type="text"],
+	 input[type="number"],
+	 select {
+	border-radius: 8px;
+	font-size: 20px;
+	padding:5px;
+	border: 1px solid #ccc;
+	width: 100%;
+	 }
+	 
+input[type="submit"]{
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #047f4e;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="reset"] {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ccc900;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #04b06b;
+    color: black;
+}
+input[type="reset"]:hover {
+  background-color: #f5f21e;
+    color: black;
+}
+.checkbox-group,
+.radio-group {
+  margin: 15px 0;
+}
+
+.checkbox-options,
+.radio-options {
+  display: flex;
+  gap: 90px;          /* space between options */
+  flex-wrap: wrap;    /* wrap neatly on smaller screens */
+  margin-top: 5px;    /* space between header label and options */
+}
+
+.checkbox-options label,
+.radio-options label {
+  margin: 0;
+  font-weight: normal;  /* options look lighter than main label */
+}
+
+.checkbox-options input,
+.radio-options input {
+  margin-right: 5px;  /* small gap between box/circle and text */
+}
+
+.form-buttons {
+  text-align: center;
+  margin-top: 15px;
+}
+input:invalid { border: 2px solid #ef4444;}
+input:valid { border: 2px solid #42e01a; }
+	</style>
+
+
+<body>
+
+<h1> Sign In </h1><br>
+<div class="form-container">
+	<form>
+		<label>First Name</label>
+		<input type="text" name="fname" id="fname" required>
+		
+		<label> Middle Name </label> 
+		<input type="text" name="mname" id="mname" required>
+		
+		<label> Last Name </label> 
+		<input type="text" name="lname" id="lname" required> <br> <br>
+
+		<label for="Gender"> Gender </label>
+		<select id="Gender" name="Gender"> 
+			<option value="Male"> Male </option>
+			<option value="Female"> Female</option>
+			<option value="Other"> Other</option>
+			</select>
+			<br>
+	
+        <label> Age </label>
+        <input required name="age" type="number" min="12" max="59"> <br> <br>
+
+        <label>Allergies</label>
+			<input type="Checkbox" id="check1">
+			<label for="check2" style="display:inline">  Fish </label>
+
+			<input type="Checkbox" id="check2">
+			<label for="check2" style="display:inline">  Peanuts </label>
+			
+			<input type="Checkbox" id="check3">
+			<label for="check2" style="display:inline">  Milk </label> <br>
+
+		<label>How extreme are the allergies</label>
+			<input type="radio" id="deadly" name="radio">
+			<label for= "option1" style="display: inline;"> deadly </label>
+			
+			<input type="radio" id="mild" name="radio">
+			<label for= "option2" style="display: inline;"> mild</label> <br> <br>
+
+		<div class="form-buttons">
+				<input type="submit" value="submit">
+				<input type="reset" value="reset">
+				
+
+		</div>
+
+
+
+   
+		</select>
+
+
+
+
+	</form>
+</div>
+
+</body>
+</html>

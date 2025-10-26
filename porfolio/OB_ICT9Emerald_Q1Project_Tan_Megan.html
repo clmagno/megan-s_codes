@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Q1 Project - Megan's Portfolio</title>
+</head>
+<style>
+	/* --- NEW: Pink theme CSS Variables for easy color management --- */
+	:root {
+		--dark-bg: #2d2d2d;
+		--light-pink: #fce4ec; /* Light pink for backgrounds */
+		--medium-pink: #f06292; /* Medium pink for banners */
+		--button-pink: #ec407a; /* A vibrant pink for the button */
+		--text-dark: #3a3a3a;
+		--text-highlight: #830d3c; /* A darker pink for name highlight */
+		--white: #ffffff;
+		--light-gray: #fdfcff; /* A very light off-white */
+		--border-color: #dee2e6;
+	}
+
+	/* --- GLOBAL STYLES --- */
+	body {
+		font-family: Arial, sans-serif;
+		margin: 0;
+		background-color: var(--light-gray);
+	}
+	
+	/* --- HEADER / NAVIGATION BAR --- */
+	.top-header {
+		background-color: var(--dark-bg);
+		color: var(--white);
+		padding: 10px 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	.logo-text {
+		font-weight: bold;
+		font-size: 1.5em;
+		color: var(--white);
+	}
+	
+	.nav-links {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		gap: 30px;
+	}
+
+	.nav-links a {
+		color: var(--white);
+		text-decoration: none;
+		font-weight: bold;
+		padding: 5px;
+	}
+
+	/* --- HERO SECTION --- */
+	.hero-section {
+		background-color: var(--light-pink);
+		text-align: center;
+		padding: 60px 20px;
+	}
+
+	.logo-image {
+		width: 120px;
+		height: auto;
+		margin-bottom: 15px;
+	}
+	
+	.hero-section h1 {
+		color: var(--text-dark);
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		font-size: 2.8em;
+		margin: 10px 0 5px 0;
+		font-weight: 700;
+	}
+	
+	.text-highlight {
+		color: var(--text-highlight);
+	}
+
+	.hero-section p {
+		color: #555;
+		margin: 0;
+		font-size: 1.2em;
+	}
+
+	/* --- MAIN CONTENT CONTAINER --- */
+	.container {
+		width: 80%;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 40px 0;
+	}
+
+	/* --- SECTION HEADERS (Banners) --- */
+	.section-title {
+		background-color: var(--medium-pink);
+		color: var(--white);
+		font-family: 'Trebuchet MS', sans-serif;
+		padding: 15px;
+		text-align: center;
+		font-size: 1.8em;
+		font-weight: bold;
+		border-radius: 10px;
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+		margin-bottom: 30px;
+	}
+
+	/* --- ABOUT ME SECTION --- */
+	.about-me p {
+		text-align: center;
+		line-height: 1.6;
+		color: #444;
+		font-size: 1.1em;
+	}
+
+	/* --- ACCOMPLISHMENTS SECTION --- */
+	.accomplishments-flex {
+		display: flex;
+		justify-content: space-between;
+		gap: 30px;
+		margin-top: 20px;
+		align-items: center;
+        margin-bottom: 40px; /* Space between accomplishment blocks */
+	}
+
+	.accomplishments-item {
+		width: 48%;
+		text-align: left; /* Adjusted for list readability */
+	}
+	
+	.accomplishments-item img {
+		width: 100%;
+        max-width: 400px; /* prevent image from becoming too large */
+        display: block;
+        margin: 0 auto; /* center the image in its container */
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		border: 1px solid var(--border-color);
+	}
+	
+    .accomplishments-item h3 {
+        color: var(--text-highlight);
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+	
+	.accomplishments-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.accomplishments-list li {
+		margin-bottom: 12px;
+		font-size: 1.1em;
+	}
+	
+	/* Style for lists with checkmarks */
+	.accomplishments-list.checked-list li::before {
+		content: "✔";
+		color: var(--text-dark);
+		font-weight: bold;
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+	/* Style for lists with dashes */
+	.accomplishments-list.dashed-list li::before {
+		content: "-";
+		font-weight: bold;
+		display: inline-block;
+		width: 15px; /* to align text */
+		margin-left: -5px;
+	}
+	
+	/* --- CONTACT FORM STYLING --- */
+	.form-wrapper {
+		background-color: var(--white);
+		padding: 40px;
+		border-radius: 15px;
+		box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+		border: 1px solid var(--border-color);
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+	
+	.form-group > label {
+		display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+	}
+		
+	.form-group div {
+		display: block; /* Let options stack if needed */
+	}
+
+	input[type="text"], input[type="email"], textarea, select {
+		width: 100%;
+		padding: 12px;
+		border: 1px solid var(--border-color);
+		border-radius: 8px;
+		box-sizing: border-box;
+		font-size: 1em;
+	}
+
+	.option-label {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 20px;
+        margin-bottom: 10px; /* space for stacking */
+        font-weight: normal;
+    }
+    .option-label input {
+        margin-right: 8px;
+        width: auto;
+    }
+
+	input[type="submit"] {
+		background: var(--button-pink);
+		color: var(--white);
+		padding: 12px 30px;
+		cursor: pointer;
+		border: none;
+		transition: background 0.3s;
+		border-radius: 8px;
+		width: auto;
+		display: block;
+		margin: 20px auto 0;
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+	
+	input[type="submit"]:hover {
+		opacity: 0.9;
+	}
+	
+	/* --- FOOTER --- */
+	.footer {
+		background-color: var(--dark-bg);
+		color: var(--white);
+		text-align: center;
+		padding: 20px;
+		margin-top: 40px;
+	}
+
+</style>
+<body>
+	<div class="top-header">
+		<div class="logo-text">MT</div>
+		<ul class="nav-links">
+			<li><a href="#about">About Me</a></li>
+			<li><a href="#accomplishments">My Accomplishments</a></li>
+			<li><a href="#contact">Contact Me</a></li>
+		</ul>
+	</div>
+
+	<div class="hero-section">
+		<img src="megan_cartoon_logo.png" alt="Megan's Personal Logo" class="logo-image">
+		<h1>Hello, I am <span class="text-highlight">Megan Tan</span></h1>
+		<p>Lifelong learner and dreamer</p>
+	</div>
+
+	<div class="container">
+		<div id="about">
+			<h2 class="section-title">About Me</h2>
+			<div class="about-me">
+				<p>Hi! I’m Megan, I love listening to music, reading books, and watching shows. I am a student who enjoys learning new things and public speaking.</p>
+                <p>I make sure to hone my skills and talents.</p>
+			</div>
+		</div>
+
+		<div id="accomplishments" style="margin-top: 40px;">
+			<h2 class="section-title">My Accomplishments</h2>
+			<div class="accomplishments-flex">
+				<div class="accomplishments-item">
+					<img src="megan_contest_1.jpeg" alt="Megan participating in a contest">
+				</div>
+				<div class="accomplishments-item">
+                    <h3>Poetry Contest Participant</h3>
+					<ul class="accomplishments-list dashed-list">
+						<li>Casa: Participation</li>
+                        <li>Grade 3: First Place</li>
+                        <li>Grade 5: First Place</li>
+                        <li>Grade 6: Participation</li>
+                        <li>Grade 7: First Place</li>
+                        <li>Grade 8: Third Place</li>
+					</ul>
+				</div>
+			</div>
+			<div class="accomplishments-flex">
+				<div class="accomplishments-item">
+					<ul class="accomplishments-list checked-list">
+                        <h3>First Honorable Mention in my batch</h3>
+						<li>Showed Consistent Grades</li>
+						<li>Exemplified Good Time Management</li>
+						<li>Had an Outstanding Academic Performance</li>
+					</ul>
+				</div>
+				<div class="accomplishments-item">
+                    <img src="megan_contest_2.jpeg" alt="Megan receiving an academic award">
+				</div>
+			</div>
+		</div>
+		
+		<div id="contact" style="margin-top: 40px;">
+			<h2 class="section-title">Contact Me</h2>
+			<div class="form-wrapper">
+				<form action="#" method="POST">
+					<div class="form-group">
+						<label for="name">Your Name:</label>
+						<input type="text" id="name" name="name" placeholder="Jane Doe" required>
+					</div>
+					<div class="form-group">
+						<label for="email">Your Email:</label>
+						<input type="email" id="email" name="email" placeholder="jane.doe@gmail.com" required>
+					</div>
+					<div class="form-group">
+						<label>How did you find me?</label>
+						<div>
+							<label class="option-label"><input type="radio" name="find-source" value="facebook"> Facebook</label>
+							<label class="option-label"><input type="radio" name="find-source" value="google"> Google</label>
+							<label class="option-label"><input type="radio" name="find-source" value="friends"> Friends</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Interests we have in common:</label>
+						<div>
+							<label class="option-label"><input type="checkbox" name="interests" value="reading-books"> Reading Books</label>
+							<label class="option-label"><input type="checkbox" name="interests" value="listening-music"> Listening to Music</label>
+							<label class="option-label"><input type="checkbox" name="interests" value="learning"> Learning New Things</label>
+                            <label class="option-label"><input type="checkbox" name="interests" value="public-speaking"> Public Speaking</label>
+                            <label class="option-label"><input type="checkbox" name="interests" value="watching-shows"> Watching Shows</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="rating">Rate my Portfolio:</label>
+						<select id="rating" name="rating">
+							<option value="">-- Select Rating --</option>
+							<option value="5">Excellent</option>
+							<option value="4">Great</option>
+							<option value="3">Good</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="message">Any Feedback?</label>
+						<textarea id="message" name="message" rows="5" placeholder="feedback here..." required></textarea>
+					</div>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p>&copy; 2025 Megan Tan Student. All rights reserved.</p>
+	</div>
+</body>
+</html>

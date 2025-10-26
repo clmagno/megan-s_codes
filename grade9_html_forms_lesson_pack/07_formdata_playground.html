@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>07 – FormData Playground (No Server)</title>
+<link rel="stylesheet" href="assets/style.css">
+<main>
+  <h1>FormData Playground</h1>
+
+  <form id="order">
+    <fieldset>
+      <legend>Pizza Order</legend>
+      <label>Name <input name="name" required></label>
+      <label>Size
+        <select name="size"><option>Small</option><option>Medium</option><option>Large</option></select>
+      </label>
+      <label><input type="checkbox" name="topping" value="pepperoni"> Pepperoni</label>
+      <label><input type="checkbox" name="topping" value="mushroom"> Mushroom</label>
+      <label><input type="checkbox" name="topping" value="pineapple"> Pineapple</label>
+      <button type="submit">Place order</button>
+    </fieldset>
+  </form>
+
+  <pre id="out"></pre>
+
+  <script type="module">
+    import { formToObject, pretty } from './assets/playground.js';
+    const order = document.getElementById('order');
+    const out = document.getElementById('out');
+    order.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = formToObject(order);
+      pretty(out, data);
+    });
+  </script>
+</main>
+</html>

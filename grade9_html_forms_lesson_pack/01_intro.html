@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 – Intro: name=value & GET vs POST</title>
+<link rel="stylesheet" href="assets/style.css">
+<main>
+  <h1>Intro: GET vs POST</h1>
+  <p>Use GET for searches/filters; POST for creates/logins/uploads.</p>
+
+  <h2>GET search demo</h2>
+  <form action="/search" method="get">
+    <label for="q">Search term</label>
+    <input id="q" name="q" type="search" placeholder="Search…" required>
+    <button type="submit">Search</button>
+  </form>
+  <p class="small">Submitting will try to navigate to <code>/search?q=...</code>. In class, we keep things local.</p>
+
+  <h2>POST sign-up demo</h2>
+  <form action="/signup" method="post" autocomplete="on">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+    <label for="pw">Password (8+ chars)</label>
+    <input id="pw" name="password" type="password" minlength="8" required>
+    <button type="submit">Create account</button>
+  </form>
+</main>
+</html>

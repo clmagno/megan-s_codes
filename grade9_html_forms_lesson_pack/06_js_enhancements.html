@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 – JS Enhancements</title>
+<link rel="stylesheet" href="assets/style.css">
+<main>
+  <h1>UI Sprinkles</h1>
+
+  <h2>Show/Hide Password</h2>
+  <label>Password
+    <input id="pw" type="password" name="pw" minlength="8" required>
+  </label>
+  <button type="button" id="toggle">Show</button>
+
+  <h2>Live Character Counter</h2>
+  <label for="bio">Bio (max 100)</label>
+  <textarea id="bio" name="bio" maxlength="100"></textarea>
+  <small id="count" class="small"></small>
+
+  <script type="module">
+    import { attachPasswordToggle, attachCounter } from './assets/playground.js';
+    attachPasswordToggle(document.getElementById('pw'), document.getElementById('toggle'));
+    attachCounter(document.getElementById('bio'), document.getElementById('count'));
+  </script>
+</main>
+</html>

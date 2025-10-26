@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Images and Lists</title>
+</head>
+<style>
+	body{
+		font-family: Arial;
+		background-color: lightcoral;
+		margin: 1px;
+		padding: 2px 20px 2px 20px;
+		
+	}
+	.container{
+     	display: flex;
+     	justify-content: space-around;
+     	/* margin-top: 100px; */
+
+     }
+	.box{ 
+	 	width: 95%;
+	 	padding: 1px;
+	 	background: #ffffff;
+	 	/* border:  solid #161616; */
+	 	border-radius: 10px;
+	}
+	.card {
+                border: 1px solid #053673;
+                border-radius: 10px;
+                padding: 100px;
+                margin: 1rem 0;
+                background: #f5bdc2;
+            }
+	h2{ 
+		font-family: Arial;
+		color: darkblue;
+		text-align:Center;
+	 }
+     ul,ol,dl{
+     	margin-left: 20px;
+     }
+     img{
+     	max-width:50%;
+     	border-radius: 10px;
+     	margin-top: 10px;
+     }
+</style>
+<body>
+<div class="container" id="students">
+	<div class="box">	
+		<h2> Grade 09 Emerald Boys</h2>
+			<ul> 
+			<li>Raji Santos</li>
+			<li>Andrei Viray</li>
+			<li>Lucas Tanglao</li>
+			<li>Ryle Benipayo</li>
+			</ul><br>
+
+		<h2>Grade 09 Emerald Girls</h2>
+		<ol>
+			<li>Loriz Santos</li>
+			<li>Isabelle Rivera</li>
+			<li> Megan Tan </li>
+			<li>Rojiniah Tungul</li>
+
+		</ol> 
+
+	<br>
+	<dl>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Students with Ages 12-15</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td> Leeroy Torres </td>
+			</tr>
+			<tr>
+				<td>Bea Manaloto</td>
+			</tr>
+		</tbody>
+	</table>
+		<table>
+		<thead>
+			<tr>
+				<th>Students with Curly Hair</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Lucas Tanglao</td>
+			</tr>
+			<tr>
+				<td>Reizen Flickinger</td>
+			</tr>
+			<tr>
+				<td>Bea Manaloto</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="#favorites"> Know my Favorites</a>
+	</div>
+
+</div>
+	<br>
+	<dt>Students with ages 12-15</dt>
+		<dd> Leeroy Torres </dd>
+		<dd>Bea Manaloto</dd>
+	<dt>Students with Curly hair </dt>
+		<dd>Lucas Tanglao</dd>
+		<dd>Reizen Flickinger</dd>
+		<dd>Bea Manaloto</dd>
+</dl> <br>
+<div class="container" id="favorites">
+	<div class="box">
+	<h2>My Favorites</h2>
+	<ol>
+		<li>My Favorite Movies</li>
+		 	<ul> 
+		 	<li>Movie 1 </li> 
+		 	<li>Movie 2 </li> 
+		 	<li>Movie 3 </li> 
+		 </ul>
+		 
+		<li> My Favorite Foods </li>
+		<ul>
+			<li>Adobo</li>
+			<li> Singigang </li> 
+			<li>Pusit</li>
+		</ul>
+</ol>
+</div>
+</div>
+<div class="container">
+	<div class="box">
+			<img src="data:image/jpeg;base64,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"
+			alt="a golden retriever with black reading glasses">
+			<img src="ictdog2.jpeg" alt="this is an image of an ai generated dog involved in ICT">
+	</div>
+</div>
+	
+
+</div>
+
+<a href="https://obmontessori.edu.ph/">OBMC Homepage</a>
+</body>
+</html>

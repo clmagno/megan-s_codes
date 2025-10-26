@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 – Basic form</title>
+<link rel="stylesheet" href="assets/style.css">
+<main>
+  <h1>Basic Forms</h1>
+   
+  <h2>Contact (GET)</h2>
+  <form action="/contact" method="get">
+    
+    <label for="name">Your name</label>
+    <input id="name" name="name" required placeholder="Juan Dela Cruz">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>Signup (POST)</h2>
+  <form action="/signup" method="post" autocomplete="on">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+    <label for="pw">Password (8+)</label>
+    <input id="pw" name="password" type="password" minlength="8" required>
+    <button type="submit">Create account</button>
+  </form>
+
+</main>
+</html>

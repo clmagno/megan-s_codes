@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Table Formatting</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 2rem; }
+    .css-table { border: 2px solid #444; border-collapse: collapse; }
+    .css-table th, .css-table td { border: 1px solid #666; padding: 12px; }
+    .spaced-table { border: 2px solid #444; border-collapse: separate; border-spacing: 16px; }
+    .spaced-table th, .spaced-table td { border: 1px solid #666; padding: 8px; }
+    .note { background: #fff7cc; padding: .75rem; border-left: 4px solid #e0b200; }
+    code { background: #f3f3f3; padding: 0 .25rem; }
+  </style>
+</head>
+<body>
+  <h1>Formatting Tables</h1>
+  <p class="note"><strong>Heads-up:</strong> Old HTML attributes like <code>border</code>, <code>cellpadding</code>, and <code>cellspacing</code> still work in some browsers, but are <em>deprecated</em> in modern HTML.
+  Prefer CSS. We show both for learning.</p>
+
+  <h2>Legacy HTML Attributes (Deprecated)</h2>
+  <table border="1" cellpadding="10" cellspacing="15">
+    <tr><th>Feature</th><th>Value</th></tr>
+    <tr><td>border</td><td>1</td></tr>
+    <tr><td>cellpadding</td><td>10</td></tr>
+    <tr><td>cellspacing</td><td>15</td></tr>
+  </table>
+
+  <h2>Modern CSS (Recommended)</h2>
+  <h3>With padding and collapsed borders</h3>
+  <table class="css-table">
+    <tr><th>Item</th><th>Qty</th><th>Price</th></tr>
+    <tr><td>Notebook</td><td>3</td><td>$4.50</td></tr>
+    <tr><td>Pencil</td><td>5</td><td>$1.00</td></tr>
+  </table>
+
+  <h3>With spacing between cells (border-spacing)</h3>
+  <table class="spaced-table">
+    <tr><th>Item</th><th>Qty</th><th>Price</th></tr>
+    <tr><td>Eraser</td><td>2</td><td>$0.75</td></tr>
+    <tr><td>Marker</td><td>4</td><td>$2.00</td></tr>
+  </table>
+</body>
+</html>

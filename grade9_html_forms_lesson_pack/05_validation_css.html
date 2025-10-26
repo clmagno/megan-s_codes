@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>05 – Validation + CSS</title>
+<link rel="stylesheet" href="assets/style.css">
+<main>
+  <h1>Validation + CSS</h1>
+  <form id="signup" novalidate>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+
+    <label for="pw">Password (8+)</label>
+    <input id="pw" name="password" type="password" minlength="8" maxlength="10" required>
+
+    <label for="pw2">Confirm password</label>
+    <input id="pw2" name="password2" type="password" minlength="8" maxlength="10" required>
+
+    <button type="submit">Sign up</button>
+    <p id="errors" class="error" aria-live="polite"></p>
+  </form>
+
+  <script type="module">
+  import { formToObject } from './assets/playground.js';
+  const form = document.getElementById('signup');
+  const errors = document.getElementById('errors');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errors.textContent = '';
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      errors.textContent = 'Please fix the highlighted fields.';
+      return;
+    }
+
+    const pw = form.password.value;
+    const pw2 = form.password2.value;
+    if (pw !== pw2) {
+      document.getElementById('pw2').setCustomValidity('Passwords must match');
+      form.reportValidity();
+      document.getElementById('pw2').setCustomValidity('');
+      return;
+    }
+
+    const data = formToObject(form);
+    errors.className = 'success';
+    errors.textContent = 'All good! ' + JSON.stringify(data);
+  });
+  </script>
+</main>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 – Input Types Gallery</title>
+<link rel="stylesheet" href="assets/style.css">
+<main>
+  <h1>Common Input Types</h1>
+  <form>
+    <div class="grid-2">
+      <label>Full name
+        <input name="fullName" required placeholder="Juan Dela Cruz">
+      </label>
+      <label>Email
+        <input name="email" type="email" required>
+      </label>
+      <label>Website
+        <input name="site" type="url"  placeholder="https://example.com">
+      </label>
+      <label>PH Mobile
+        <input name="mobile" type="tel" placeholder="09XXXXXXXXX or +639XXXXXXXXX"
+               pattern="^(09\d{9}|\+639\d{9})$" required>
+      </label>
+      <label>Age
+        <input name="age" type="number" min="18" max="59">
+      </label>
+      <label>Spiciness
+        <input name="spice" type="range" min="0" max="10" step="1">
+      </label>
+      <label>Birthday
+        <input name="birthday" type="date">
+      </label>
+      <label>Meeting (local)
+        <input name="meeting" type="datetime-local">
+      </label>
+      <label>Favorite color
+        <input name="favoriteColor" type="color" value="#0ea5e9">
+      </label>
+    </div>
+
+    <fieldset>
+      <legend>Preferred contact</legend>
+      <label class="option"><input type="radio" name="contact" value="email" checked> Email</label>
+      <label class="option"><input type="radio" name="contact" value="sms"> SMS</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Clubs</legend>
+      <label class="option"><input type="checkbox" name="club" value="science"> Science</label>
+      <label class="option"><input type="checkbox" name="club" value="arts"> Arts</label>
+      <label class="option"><input type="checkbox" name="club" value="sports"> Sports</label>
+    </fieldset>
+
+    <label>Profile photo
+      <input type="file" name="avatar" accept="image/*">
+    </label>
+
+    <input type="hidden" name="source" value="grade9-demo">
+    <button type="submit">Submit</button>
+  </form>
+</main>
+</html>

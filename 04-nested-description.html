@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nested & Description Lists</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+    section { border: 1px solid #ddd; padding: 1rem; border-radius: .5rem; }
+  </style>
+</head>
+<body>
+  <h1>Nested & Description Lists</h1>
+  <div class="grid">
+    <section>
+      <h2>Nested List</h2>
+      <ul>
+        <li>Frontend
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </li>
+        <li>Backend
+          <ol>
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>PHP</li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Description List (&lt;dl&gt;)</h2>
+      <dl>
+        <dt>HTML</dt>
+        <dd>The structure of web pages.</dd>
+        <dt>CSS</dt>
+        <dd>Styles and layout.</dd>
+        <dt>JS</dt>
+        <dd>Interactivity and logic.</dd>
+      </dl>
+    </section>
+  </div>
+</body>
+</html>

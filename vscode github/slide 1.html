@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tl-ph">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megan's Developer's Adventure: VS Code & GitHub (2-Hour Quest!)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body & Container */
+        body { font-family: 'Lato', sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ea 100%); color: #333; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 30px auto; background-color: #ffffff; padding: 40px 60px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); border: 2px solid #5DADE2; } /* Blue border */
+
+        /* Header & Intro */
+        h1 { font-family: 'Press Start 2P', cursive; color: #E74C3C; /* Red for emphasis */ text-align: center; font-size: 2.8em; margin-bottom: 10px; text-shadow: 3px 3px #F9E79F; } /* Pixel font with shadow */
+        h1 span { display: block; font-size: 0.5em; color: #28B463; margin-top: 10px; font-family: 'Lato', sans-serif; }
+        .intro-text { text-align: center; font-size: 1.2em; color: #555; margin-bottom: 30px; }
+        .intro-highlight { font-weight: bold; color: #5DADE2; } /* Blue */
+
+        /* Section Headers */
+        h2 { font-family: 'Press Start 2P', cursive; color: #2C3E50; /* Dark Blue */ font-size: 1.8em; margin-top: 50px; padding: 15px 20px; background-color: #F7DC6F; /* Light Yellow */ border-radius: 10px; border-left: 8px solid #F39C12; /* Orange */ text-shadow: 2px 2px #E74C3C80; }
+        h3 { color: #5DADE2; /* Blue */ font-size: 1.4em; margin-top: 30px; border-bottom: 2px dashed #D5DBDB; padding-bottom: 5px; }
+        
+        /* General Text & Lists */
+        p { margin-bottom: 15px; }
+        ul { list-style-type: '👉 '; padding-left: 25px; margin-bottom: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* Code & Examples */
+        .code-block { background-color: #2C3E50; /* Dark blue-gray */ color: #A2D9CE; /* Light green for code */ padding: 15px; border-radius: 8px; overflow-x: auto; margin: 15px 0; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.95em; }
+        .inline-code { background-color: #EAEDED; color: #E74C3C; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Courier New', monospace; font-weight: bold; }
+        .output { background-color: #EBF5FB; border-left: 5px solid #5DADE2; padding: 10px; border-radius: 5px; margin-top: 10px; }
+
+        /* Callouts / Highlights */
+        .tip-box { background-color: #D6EAF8; /* Light Blue */ border-left: 5px solid #3498DB; padding: 15px; margin: 20px 0; border-radius: 8px; }
+        .challenge-box { background-color: #FCF3CF; /* Light Yellow */ border-left: 5px solid #F1C40F; padding: 15px; margin: 20px 0; border-radius: 8px; font-weight: bold; }
+        .fun-fact { background-color: #E8F8F5; /* Light Green */ border-left: 5px solid #28B463; padding: 10px; margin: 15px 0; border-radius: 5px; font-style: italic; }
+
+        /* Visual Flow (Arrows, etc.) */
+        .flow-arrow { text-align: center; margin: 20px 0; font-size: 3em; color: #28B463; } /* Green arrow */
+        .dev-badge { background-color: #A2D9CE; color: #2C3E50; padding: 5px 10px; border-radius: 15px; font-weight: bold; font-size: 0.9em; display: inline-block; margin-right: 5px; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container { padding: 20px 30px; margin: 15px auto; }
+            h1 { font-size: 2em; }
+            h1 span { font-size: 0.6em; }
+            h2 { font-size: 1.5em; }
+            .flow-arrow { font-size: 2em; }
+            .git-states-flow { flex-direction: column; }
+            .git-state-card { margin: 10px 0; width: 95%; }
+        }
+
+        /* Git States Visual Flow */
+        .git-states-flow { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; margin-top: 30px; }
+        .git-state-card { background-color: #fcfcfc; border-radius: 10px; padding: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); text-align: center; width: 28%; min-width: 200px; margin: 10px; transition: transform 0.2s; }
+        .git-state-card:hover { transform: translateY(-5px); }
+        .git-state-card h4 { font-family: 'Press Start 2P', cursive; font-size: 1.1em; margin-bottom: 10px; }
+        .git-state-card.modified { border: 3px solid #E74C3C; color: #E74C3C; }
+        .git-state-card.staged { border: 3px solid #F1C40F; color: #F1C40F; }
+        .git-state-card.committed { border: 3px solid #5DADE2; color: #5DADE2; }
+        .git-state-card p { font-size: 0.9em; color: #555; }
+        .git-state-card .emoji { font-size: 2em; margin-bottom: 10px; display: block; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MEGAN'S DEV QUEST! <span>Mastering VS Code & GitHub in 2 Hours!</span></h1>
+    <p class="intro-text">
+        Welcome, <span class="intro-highlight">Megan</span>, to your ultimate adventure in the world of coding! Here, we'll turn you from a brave explorer into a <span class="intro-highlight">Code Hero</span> using powerful tools!
+    </p>
+    <p class="intro-text">
+        This page is your <span class="intro-highlight">Adventure Map</span>. Follow the steps, complete the challenges, and unlock your coding superpowers! Let's go!
+    </p>
+
+    <h2><span class="emoji">🧪</span> PHASE 1: Your Secret Code Lab - VS Code! <span class="dev-badge">~50 Mins~</span></h2>
+    <p>Imagine VS Code as your high-tech **Secret Lab** where you invent amazing things. Dito mo isusulat ang spells (code) mo!</p>
+
+    <h3>1.1. Lab Setup: Installing VS Code (5 mins)</h3>
+    <p>First, we need to set up your lab! Kung wala pa, install natin ang VS Code. It's super fast!</p>
+    <ul>
+        <li><strong>Activity:</strong> Go to <a href="https://code.visualstudio.com/download" target="_blank">code.visualstudio.com/download</a> and install VS Code for your computer.</li>
+    </ul>
+
+    <h3>1.2. The Grand Tour: Exploring Your Lab (15 mins)</h3>
+    <p>Let's look around! Ito ang mga importanteng parte ng iyong lab:</p>
+    <ul>
+        <li><span class="intro-highlight"><strong>Explorer (📁):</strong></span> Parang drawer mo kung saan naka-ayos lahat ng files at projects mo.</li>
+        <li><span class="intro-highlight"><strong>Editor (✍️):</strong></span> Ito ang canvas mo, dito mo isusulat ang code mo.</li>
+        <li><span class="intro-highlight"><strong>Terminal (💻):</strong></span> Ito ang "command center" mo. Dito mo binibigyan ng instructions ang computer mo (tulad ng pagpapatakbo ng Git!).</li>
+        <li><span class="intro-highlight"><strong>Extensions (🧩):</strong></span> Mga "gadgets" na nagbibigay ng extra superpowers sa lab mo!</li>
+        <li><span class="intro-highlight"><strong>Command Palette (<span class="inline-code">Ctrl/Cmd+Shift+P</span>):</strong></span> Ang iyong *hidden secret panel*! Dito mo mahahanap lahat ng commands nang mabilis. Try it!</li>
+    </ul>
+    <div class="tip-box">
+        <strong>PRO TIP:</strong> Gamitin ang <span class="inline-code">Ctrl/Cmd + P</span> para mabilis magbukas ng files! It's like a superhero finding tools in a flash!
+    </div>
+
+    <h3>1.3. Your First Spell: "Hello, Developer!" with HTML (15 mins)</h3>
+    <p>Let's cast your first spell! Gagawa tayo ng simpleng website gamit ang HTML.</p>
+    <ul>
+        <li><strong>Activity:</strong>
+            <ol>
+                <li>Gumawa ng folder sa desktop mo, pangalanan itong <span class="inline-code">MeganDevQuest</span>.</li>
+                <li>Buksan ang folder na 'yan sa VS Code (<span class="inline-code">File &gt; Open Folder...</span>).</li>
+                <li>Gumawa ng bagong file, pangalanan itong <span class="inline-code">index.html</span>.</li>
+                <li>Sa <span class="inline-code">index.html</span>, i-type ang <span class="inline-code">!</span> then pindutin ang <span class="inline-code">Tab</span>. *Magic!* Lalabas agad ang HTML structure!</li>
+                <li>Sa loob ng <span class="inline-code">&lt;body&gt;</span> tags, ilagay ito: <span class="code-block">&lt;h1&gt;Hello, Future Code Hero Megan!&lt;/h1&gt;<br>&lt;p&gt;This is my first awesome webpage!&lt;/p&gt;</span></li>
+            </ol>
+        </li>
+    </ul>
+    <div class="fun-fact">
+        **Fun Fact:** Ang <span class="inline-code">!</span> + <span class="inline-code">Tab</span> ay galing sa **Emmet**, isang super-fast coding shortcut!
+    </div>
+
+    <h3>1.4. Instant Viewer: The Live Server Gadget (10 mins)</h3>
+    <p>Para makita agad ang ginawa mong website, gagamitin natin ang isang superpower gadget: **Live Server!**</p>
+    <ul>
+        <li><strong>Activity:</strong>
+            <ol>
+                <li>Sa VS Code, pumunta sa <span class="intro-highlight">Extensions tab (🧩)</span>.</li>
+                <li>Hanapin ang <span class="intro-highlight">"Live Server"</span> by Ritwick Dey at i-install.</li>
+                <li>Bumalik sa <span class="inline-code">index.html</span> file mo. Right-click, then piliin ang <span class="intro-highlight">"Open with Live Server"</span>.</li>
+            </ol>
+        </li>
+    </ul>
+    <p><strong>Resulta:</strong> Bubukas ang browser mo at makikita mo ang website mo! Kapag may binago ka sa <span class="inline-code">index.html</span> at nag-save, automatic magre-refresh ang browser. Astig, diba?</p>
+
+    <div class="flow-arrow">👇</div>
+
+    <h2><span class="emoji">⏳</span> PHASE 2: Your Time-Traveling Journal - Git! <span class="dev-badge">~40 Mins~</span></h2>
+    <p>Imagine Git as your **Time-Traveling Journal**. Bawat importanteng ginawa mo, ililista mo, at pwede kang bumalik sa nakaraan kung sakaling magkamali!</p>
+
+    <h3>2.1. Why a Journal? The Power of Git (10 mins)</h3>
+    <p>Bakit kailangan ito? Sino ba naman ang may ayaw sa superpower na ito?</p>
+    <ul>
+        <li>**"Oh no, I broke it!"** Kapag nagkamali ka, pwede kang bumalik sa previous version ng code mo.</li>
+        <li>**"What did I change?"** Nakikita mo kung ano ang mga binago mo sa bawat entry.</li>
+        <li>**"Collaboration!"** Makakatrabaho mo ang ibang developers sa iisang project nang hindi nagkakagulo.</li>
+    </ul>
+    <div class="tip-box">
+        <strong>Analogy:</strong> Parang naglalaro ka ng RPG. Bawat <span class="intro-highlight">"commit"</span> mo, parang <span class="intro-highlight">"save point"</span>!
+    </div>
+
+    <h3>2.2. The Three Secret States of Your Code! (15 mins)</h3>
+    <p>Para makagawa ng journal entry (commit), dadaan muna ang code mo sa tatlong secret states:</p>
+    
+    <div class="git-states-flow">
+        <div class="git-state-card modified">
+            <span class="emoji">✏️</span>
+            <h4>MODIFIED</h4>
+            <p><strong>Status:</strong> May binago ka sa code mo sa VS Code, pero hindi pa ito handa para sa "snapshot."</p>
+            <p><strong>Analogy:</strong> Nagsusulat ka sa draft ng journal, pero hindi mo pa fina-finalize.</p>
+        </div>
+        <div class="git-state-card staged">
+            <span class="emoji">📦</span>
+            <h4>STAGED (INDEX)</h4>
+            <p><strong>Action:</strong> <span class="inline-code">git add .</span></p>
+            <p><strong>Status:</strong> Pinili mo na kung aling changes ang isasama sa susunod na journal entry. Naka-pack na ang box!</p>
+        </div>
+        <div class="git-state-card committed">
+            <span class="emoji">✅</span>
+            <h4>COMMITTED</h4>
+            <p><strong>Action:</strong> <span class="inline-code">git commit -m "Your Message"</span></p>
+            <p><strong>Status:</strong> Success! Na-save na ang journal entry sa **local** Time-Traveling Journal mo!</p>
+        </div>
+    </div>
+    
+    <h3>2.3. Hands-on Journaling: Git Commands (15 mins)</h3>
+    <p>Let's try it! Gamitin natin ang Terminal sa VS Code para mag-journal.</p>
+    <ul>
+        <li><strong>Activity:</strong>
+            <ol>
+                <li><strong>Initialize ang Journal:</strong> Sa VS Code Terminal, i-type: <span class="code-block">git init</span><br>
+                    <div class="output">Output: <span class="inline-code">Initialized empty Git repository in ...MeganDevQuest/.git/</span></div>
+                    <p>Ibig sabihin, handa na ang folder mo para maging Git repository!</p>
+                </li>
+                <li><strong>Modified Stage:</strong> Gumawa ka ng change. Halimbawa, palitan ang <span class="inline-code">&lt;p&gt;</span> tag mo:
+                    <span class="code-block">&lt;p&gt;This is my first awesome webpage, now with super colors!&lt;/p&gt;</span>
+                </li>
+                <li><strong>Staged Stage:</strong> Ilagay sa "Staging Area" ang change mo.
+                    <span class="code-block">git add .</span>
+                    <p>Ang <span class="inline-code">.</span> means "all changes in this folder."</p>
+                </li>
+                <li><strong>Committed Stage:</strong> Isulat na sa journal!
+                    <span class="code-block">git commit -m "Added my first awesome webpage content"</span>
+                    <div class="output">Output: <span class="inline-code">[main (root-commit) ...] Added my first awesome webpage content<br> 1 file changed, 7 insertions(...)</span></div>
+                    <p>Congrats! May first entry ka na sa time machine mo!</p>
+                </li>
+            </ol>
+        </li>
+    </ul>
+
+    <div class="challenge-box">
+        <strong>CHALLENGE! (Practice makes a Code Hero!)</strong><br>
+        Magdagdag ng <span class="inline-code">&lt;h2&gt;My Superpowers:&lt;/h2&gt;</span> sa <span class="inline-code">index.html</span> mo.
+        Pagkatapos, ulitin ang <span class="inline-code">git add .</span> at <span class="inline-code">git commit -m "Added my superpowers section"</span>.
+    </div>
+
+    <div class="flow-arrow">👇</div>
+
+    <h2><span class="emoji">🌐</span> PHASE 3: Your Global Archive - GitHub! <span class="dev-badge">~30 Mins~</span></h2>
+    <p>Ang GitHub ang iyong **Global Archive** sa internet! Dito mo isasave ang Time-Traveling Journal mo para **safe** (kahit masira ang laptop mo!) at **shareable** sa buong mundo!</p>
+
+    <h3>3.1. Setting up Your GitHub Account & Repository (10 mins)</h3>
+    <p>Para makapag-upload sa Global Archive, kailangan mo ng account at isang "vault" (repository).</p>
+    <ul>
+        <li><strong>Activity:</strong>
+            <ol>
+                <li>Kung wala pa, gumawa ng account sa <a href="https://github.com/" target="_blank">github.com</a>.</li>
+                <li>Gumawa ng bagong repository. Click <span class="intro-highlight">"New"</span> button.</li>
+                <li>Pangalanan itong <span class="inline-code">megans-first-quest</span>. Gawing **Public**. Don't add a README yet.</li>
+                <li>Pagkatapos, makikita mo ang mga commands para i-connect ang local project mo.</li>
+            </ol>
+        </li>
+    </ul>
+
+    <h3>3.2. Linking Your Journal to the Archive (10 mins)</h3>
+    <p>I-connect na natin ang local journal mo sa online archive!</p>
+    <ul>
+        <li><strong>Activity:</strong>
+            <ol>
+                <li>Kopyahin ang command na mukhang ito (usually nasa ilalim ng "…or push an existing repository from the command line"):
+                    <span class="code-block">git remote add origin https://github.com/your-username/megans-first-quest.git<br>git branch -M main<br>git push -u origin main</span>
+                </li>
+                <li>I-paste at i-run ang mga commands na 'yan sa VS Code Terminal mo.</li>
+            </ol>
+        </li>
+    </ul>
+    <p><strong>Resulta:</strong> Pagkatapos mag-run, i-refresh ang GitHub page mo. *Boom!* Makikita mo na ang files mo online!</p>
+    <div class="fun-fact">
+        **Fun Fact:** Ang <span class="inline-code">origin</span> ay ang common name ng "main" remote repository mo. Ang <span class="inline-code">main</span> naman ang pangalan ng default branch mo.
+    </div>
+
+    <h3>3.3. The Full Pro Flow: Edit, Add, Commit, Push! (10 mins)</h3>
+    <p>Eto na ang buong cycle na ginagawa ng mga Code Heroes sa araw-araw!</p>
+    <ul>
+        <li><strong>Activity:</strong>
+            <ol>
+                <li><strong>EDIT:</strong> Sa <span class="inline-code">index.html</span>, magdagdag ng isa pang <span class="inline-code">&lt;p&gt;</span> tag: <span class="code-block">&lt;p&gt;I just pushed my code to GitHub! How cool is that?!&lt;/p&gt;</span></li>
+                <li><strong>ADD:</strong> Ilagay sa Staging Area: <span class="code-block">git add .</span></li>
+                <li><strong>COMMIT:</strong> Isulat sa journal: <span class="code-block">git commit -m "Added a paragraph after pushing to GitHub"</span></li>
+                <li><strong>PUSH:</strong> I-upload sa Global Archive: <span class="code-block">git push origin main</span></li>
+            </ol>
+        </li>
+    </ul>
+    <p><strong>Check:</strong> Balikan ang GitHub page mo. Makikita mo na ang latest changes mo, pati na ang bagong commit message!</p>
+
+    <div class="flow-arrow">🎉</div>
+
+    <h2><span class="emoji">🏆</span> PHASE 4: Quest Completed! What's Next? <span class="dev-badge">~10 Mins~</span></h2>
+    <p>Congratulations, Code Hero Megan! Sa loob ng 2 hours, natutunan mo ang fundamentals ng modern web development tools!</p>
+    
+    <h3>Your Achievements:</h3>
+    <ul>
+        <li>Na-set up mo ang iyong **Secret Code Lab (VS Code)**.</li>
+        <li>Nagamit mo ang iyong **Time-Traveling Journal (Git)** para i-track ang code mo.</li>
+        <li>Na-upload mo ang iyong proyekto sa **Global Archive (GitHub)** para safe at shareable!</li>
+    </ul>
+
+    <h3>Your Next Adventure (Challenges for a True Code Hero!):</h3>
+    <ul>
+        <li><strong>Add Styles (CSS):</strong> Gumawa ng bagong file, <span class="inline-code">style.css</span>. Dagdag ka ng basic style para sa <span class="inline-code">&lt;h1&gt;</span> mo (e.g., color, font-size).
+            <ul>
+                <li>Don't forget to link it in your <span class="inline-code">index.html</span>: <span class="code-block">&lt;link rel="stylesheet" href="style.css"&gt;</span> (ilagay sa loob ng <span class="inline-code">&lt;head&gt;</span>)</li>
+            </ul>
+        </li>
+        <li><strong>Full Cycle Practice:</strong> After adding CSS, ulitin ang <span class="emphasis">EDIT &rarr; ADD &rarr; COMMIT &rarr; PUSH</span> flow! Gawin ito nang ilang beses hanggang sa maging natural.</li>
+        <li><strong>Explore GitHub:</strong> Tingnan ang **History** ng commits mo sa GitHub. Explore ang ibang features nito!</li>
+    </ul>
+
+    <div class="tip-box">
+        <strong>REMEMBER:</strong> Practice, practice, practice! Ang pagiging Code Hero ay parang paglalaro ng video game, mas gagaling ka habang naglalaro!
+    </div>
+    <p style="text-align: center; font-weight: bold; font-size: 1.2em; margin-top: 30px; color: #1e8449;">Good luck sa iyong patuloy na Code Journey, Megan!</p>
+
+</div>
+
+</body>
+</html>

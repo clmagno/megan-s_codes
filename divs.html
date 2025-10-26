@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Div Demo</title>
+        <style>
+            .card {
+                border: 1px solid #00224a;
+                border-radius: 10px;
+                padding: 1rem;
+                margin: 1rem 0;
+                background: #ffffff;
+                margin-top: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>possible hrefs are:</h2> 
+        <ul>
+            <li>section or div using # (e.g. #home #aboutus)</li>
+            <li>sa external file using filename (be mindful of folders)</li>
+            <li>sa url (e.g. https://fb.com)</li>
+        </ul> 
+        <a href="#home">Home</a><br>
+        <a href="#aboutus">About Us</a>
+        <a href="samples/03-lists.html" target="_blank">lists demo</a>
+        <a href="https://obmontessori.edu.ph/" target="_blank">OBMC Homepage</a>
+        <div class="card" id="home">
+            <p>there's no place like 127.0.0.1</p>
+            
+        <a href="#aboutus">About Us</a>
+        </div>
+        <div class="card" id="aboutus">
+            <p>this is about us? me? you? huh?</p>
+            <a href="#home">There's no place like..</a>
+        </div>
+        <div class="card" id="division3">
+            <p> this is is non div </p>
+            <p> this is also not divided</p>
+            <a href="01-table-basic.html">Tables</a>
+        </div>
+    </body>
+</html>

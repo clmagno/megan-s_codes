@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Recommendation Form</title>
+<style>
+        
+body{
+        background-image: url(movieimg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    h2{
+        text-align: center;
+        margin-bottom: 20px;
+        color:#2b274d;
+
+    }
+    label{
+        font-weight: bold;
+        margin: 10px 0 5px;
+        display: block;
+    }
+    input,select,textarea,button{
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .option-label{
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+        font-weight: normal;
+    }
+    .option-label input{
+        margin-right: 5px;
+        width: auto;
+    }
+    input[type="SUBMIT"]
+    input[type="RESET"]
+    button{
+        background: darkblue;
+        color: black;
+        cursor: pointer;
+        border: none;
+        transition: background 0.3s;
+    }
+    input[type="SUBMIT"]:hover,
+    input[type="RESET"]:hover,
+    button:hover{
+        background: gray;
+    }
+    .form-buttons{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .form-container{
+        background-color: white;
+        padding: 20px 30px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 450%;
+        color: white;
+    }
+    .card{
+    border: 2px solid #00224a;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    background: #ffffff;
+    margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Movie Recommendations Form</h2>
+        <p>This is a form where you're supposed to reccomend your favorite movies to others </p>
+        <form>
+            <label for="text">Your Username</label>
+            <input type="user" name="user" placeholder="Jane Doe" required><br>
+
+            <label>Your Email</label>
+            <input type="email" id="email" name="email" placeholder="jane_doe@gmail.com" required><br>
+
+            <label for="text">Recommended Movie Title</label>
+            <input type="text" id="movie title" name="movie title"><br>
+
+            <label for="whydoyourecommended">Why Do You Recommend It?</label>
+            <textarea id="textarea" name="textarea" rows="6"></textarea>
+
+            <label>Genres (select all that apply):</label>
+
+            <label class="option-label"><input type="checkbox" id="Action" name="checkbox" value="Action">Action</label>
+
+            <label class="option-label"><input type="checkbox" id="Comedy" name="checkbox" value="Comedy">Comedy</label>
+
+            <label class="option-label"><input type="checkbox" id="Drama" name="checkbox" value="Drama">Drama</label>
+
+            <label class="option-label"><input type="checkbox" id="Fantasy" name="checkbox" value="Fantasy">Fantasy</label>
+
+            <label>Rate The Movie</label>
+            
+            <label class="option-label"> <input type="radio" id="1" name="radio" value="1">1</label>
+
+            <label class="option-label"> <input type="radio" id="2" name="radio" value="2">2</label>
+
+            <label class="option-label"> <input type="radio" id="3" name="radio" value="3">3</label>
+
+            <label class="option-label"> <input type="radio" id="4" name="radio" value="4">4</label>
+
+            <label class="option-label"> <input type="radio" id="5" name="radio" value="5">5 (best)</label>
+
+            <label for="Wheredidyouwatchit">Where did you watch it?</label>
+            <select id="dropdown" name="dropdown">
+                <option value="Netflix">Netflix</option>
+                <option value="Disney Plus">Disney Plus</option>
+                <option value="Amazon Prime">Amazon Prime</option>
+                <option value="Hulu">Hulu</option>
+                <option value="Pirated Series">Pirated Series</option>
+            </select>
+
+            <div class="for-buttons">
+                <input type="submit" value="submit">
+                <input type="reset" value="reset">
+                
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+

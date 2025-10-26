@@ -1,0 +1,132 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form container styling */
+.form-container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 75%;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Paragraph styling */
+p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Form group styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Input and select styling */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Select refinement */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Checkbox & Radio groups */
+.checkbox-group,
+.radio-group {
+    margin: 15px 0;
+}
+
+.checkbox-options,
+.radio-options {
+    display: flex;
+    gap: 90px;          /* space between options */
+    flex-wrap: wrap;    /* wrap neatly on smaller screens */
+    margin-top: 5px;    /* space between header label and options */
+}
+
+.checkbox-options label,
+.radio-options label {
+    margin: 0;
+    font-weight: normal;  /* options look lighter than main label */
+}
+
+.checkbox-options input,
+.radio-options input {
+    margin-right: 5px;  /* small gap between box/circle and text */
+}
+
+/* Buttons styling */
+button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button[type="reset"] {
+    background-color: #f44336;
+}
+
+button[type="reset"]:hover {
+    background-color: #d7372c;
+}
+
+/* Form button container */
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
